@@ -222,8 +222,9 @@ with st.expander("1.CHAT BOT"):
                 message(st.session_state["past"][i], is_user=True, key=str(i) + "_user")
 
     
-
-with st.expander("2.ANALYSIS"):
+text1="2.ANALYSIS"
+text2=f"<h3 style='color:grey'>{text1}</h3>"
+with st.expander(text2):
     genre = st.radio(
     "How do You Want to Analyse",
     ('1.From a Dataset Which you Want', '2.From a Dataset which is Available'))
