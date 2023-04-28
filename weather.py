@@ -164,7 +164,7 @@ try:
     
     try:
         st.header("Data from excel: ")
-        styled_df = df.style.set_properties(**{'background-color': 'blue'})
+        styled_df = df.style.set_properties(**{'border-color': 'blue'})
         st.write(styled_df)
     except:
         pass
