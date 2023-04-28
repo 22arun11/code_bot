@@ -223,7 +223,7 @@ with st.expander("1.CHAT BOT"):
 
     
 text1="2.ANALYSIS"
-text2=f"<h3 style='color:grey'>{text1}</h3>"
+text2=f"<span style='color:black'>{text1}</span>"
 with st.expander(text2):
     genre = st.radio(
     "How do You Want to Analyse",
