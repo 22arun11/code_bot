@@ -164,8 +164,29 @@ try:
     
     try:
         st.header("Data from excel: ")
-        styled_df = df.style.set_properties(**{'border-color': 'black','color': 'black'})
-        st.write(styled_df)
+        th_props = [
+        ('font-size', '14px'),
+        ('text-align', 'center'),
+        ('color', 'white'),
+        ('background-color', 'royalblue'),
+        ('border-color', 'black')
+        ]
+                                    
+        td_props = [
+        ('font-size', '12px'),
+        ('background-color', 'black'),
+        ('border-size', '14'),
+        ('border-color', 'while')
+        ]
+                                        
+        styles = [
+        dict(selector="th", props=th_props),
+        dict(selector="td", props=td_props)
+        ]
+
+        # table
+        df2=df.style.set_properties(**{'text-align': 'left'}).set_table_styles(styles)
+        st.table(df2)
     except:
         pass
     
