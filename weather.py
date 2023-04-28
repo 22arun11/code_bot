@@ -4,7 +4,7 @@ from plotly import graph_objects as go
 import pandas as pd
 import streamlit as st
 from streamlit_chat import message
-
+import env
 from langchain.chains import ConversationChain
 from langchain.llms import OpenAI
 from langchain import ConversationChain, LLMChain, PromptTemplate
