@@ -18,7 +18,7 @@ st.markdown(
     """
     <style>
     .reportview-container {
-        background: url("https://wallpaperaccess.com/full/1540031.jpg")
+        background: url("https://c0.wallpaperflare.com/preview/741/516/49/wallpaper-background-simplistic-minimalistic.jpg")
     }
   
     </style>
