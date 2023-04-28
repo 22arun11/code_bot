@@ -1,6 +1,6 @@
 import streamlit as st
 import datetime,requests
-!pip install plotly
+pip install plotly
 from plotly import graph_objects as go
 
 st.set_page_config(page_title='Nikhilesh Shah', page_icon=":cloud:")
