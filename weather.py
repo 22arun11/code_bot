@@ -5,8 +5,8 @@ import pandas as pd
 
 st.set_page_config(page_title='clither', page_icon=":cloud:")
 
-st.title("THE WEEKLY PREDICTED WEATHER FORECAST ☀️🌧️🌥️⚡️")
-
+st.title("THE WEEKLY PREDICTED WEATHER FORECAST 🌧️🌥️⚡️")
+st.sidebar.header("User Inputs: ")
 with st.sidebar:
     with st.form(key='my_form'):
         city=st.text_input("ENTER THE NAME OF THE CITY ")
@@ -162,10 +162,15 @@ try:
     table2.update_layout(margin=dict(l=10,r=10,b=10,t=10),height=360)
     st.write(table2)
     
+    try:
+        st.header("Data from excel: ")
+        st.write(df)
+    except:
+        pass
+    
     st.header(' ')
     st.header(' ')
     st.markdown("By Kamalesh, Arun ,Shrish💪🏻")
 
 except KeyError:
-    st.error(" Invalid city!!  Please try again !!")
-
+    st.error("Enter a valid city!")
