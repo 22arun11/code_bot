@@ -230,11 +230,6 @@ with st.expander("2.ANALYSIS"):
         be random.""")
     
 
-with st.expander("1.CURRENT WEATHER"):
-    st.write("""
-        The chart above shows some numbers I picked for you.
-        I rolled actual dice for these, so they're guaranteed to
-        be random.""")
         
     
     
