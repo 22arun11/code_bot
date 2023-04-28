@@ -148,7 +148,7 @@ try:
                 '<b>HUMIDITY</b>'],
                 line_color='black', fill_color='royalblue',  font=dict(color='white', size=14),height=32),
     cells=dict(values=[dates,maxtemp,mintemp,rain,cloud,humd],
-    line_color='black',fill_color=['paleturquoise',['palegreen', '#fdbe72']*7], font_size=14,height=32
+    line_color='black',fill_color=['royalblue',['palegreen', '#fdbe72']*7], font_size=14,height=32
         ))])
 
     table1.update_layout(margin=dict(l=10,r=10,b=10,t=10),height=328)
