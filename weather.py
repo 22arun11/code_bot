@@ -22,7 +22,7 @@ st.markdown(
     """
     <style>
     .reportview-container {
-        background: url("https://wallpaperaccess.com/full/1442216.jpg")
+        background: url("https://a-static.besthdwallpaper.com/artistic-mountain-landscape-wallpaper-1920x1200-3172_6.jpg")
     }
   
     </style>
