@@ -186,7 +186,7 @@ try:
 
         # table
         df2=df.style.set_properties(**{'text-align': 'left'}).set_table_styles(styles)
-        st.table(df2)
+        st.write(df2, height=10)
     except:
         pass
     
