@@ -203,7 +203,7 @@ if "generated" not in st.session_state:
 if "past" not in st.session_state:
     st.session_state["past"] = []
 
-st.subheader(":blue[WELCOME BACK WHAT WOULD YOU LIKE TO DO:]")
+st.subheader("WELCOME BACK WHAT WOULD YOU LIKE TO DO?")
 
 with st.expander("1.CHAT BOT"):
         input_text = st.text_input("You: ", "Hello, how are you?", key="input")
