@@ -224,10 +224,68 @@ with st.expander("1.CHAT BOT"):
     
 
 with st.expander("2.ANALYSIS"):
-    st.write("""
-        The chart above shows some numbers I picked for you.
-        I rolled actual dice for these, so they're guaranteed to
-        be random.""")
+    genre = st.radio(
+    "How do You Want to Analyse",
+    ('1.From a Dataset Which you Want', '2.From a Dataset which is Available'))
+
+    if genre == "1.From a Dataset Which you Want":
+        # data = pd.read_excel("environment.xlsx")
+        # chart = alt.Chart(data).mark_line().encode(x='Element', y='Area')
+        # st.altair_chart(chart, use_container_width=True)
+        openai.api_key = "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"
+        model_engine = "text-davinci-002"
+
+        # Define the initial prompt for the OpenAI model
+        model_prompt = "The answer to your question is:"
+
+        # Create a file uploader widget for Excel files
+        excel_file = st.file_uploader("Upload Excel file", type=["xlsx"])
+
+        # If a file is uploaded, load it into a pandas dataframe
+        if excel_file is not None:
+            df = pd.read_excel(excel_file)
+
+            # Extract the column names from the dataframe
+            # Extract the data you need from the dataframe
+            input_data = df
+
+            # Define a function to generate OpenAI responses
+            def generate_answer(input_str):
+                prompt_str = model_prompt + " " + input_str
+                response = openai.Completion.create(
+                    engine=model_engine,
+                    prompt=prompt_str,
+                    temperature=0.5,
+                    max_tokens=1024,
+                    n=1,
+                    stop=None,
+                    timeout=60,
+                )
+                return response.choices[0].text.strip()
+
+            # Allow the user to ask questions about the data
+            question = st.text_input("Ask a question")
+
+            # If a question is asked, generate an OpenAI response
+            if question:
+                # Construct the prompt for the OpenAI model
+                prompt = model_prompt + " "
+                for input_str in input_data:
+                    prompt += f"Q: What is the {question} for {input_str}? A: "
+                
+                # Generate the OpenAI response and display it in the Streamlit app
+                answer_list = []
+                for input_str in input_data:
+                    prompt_str = prompt + input_str
+                    answer = generate_answer(prompt_str)
+                    answer_list.append(answer)
+                st.write("OpenAI's answer:")
+                st.write(answer_list)
+
+    else:
+        st.write("Sorry for the Incovinience the data is not available")
+with st.expander("1.CURRENT WEATHER"):
+    pass
     
 
         
