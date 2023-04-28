@@ -233,7 +233,7 @@ with st.expander("2.ANALYSIS"):
         # data = pd.read_excel("environment.xlsx")
         # chart = alt.Chart(data).mark_line().encode(x='Element', y='Area')
         # st.altair_chart(chart, use_container_width=True)
-        openai.api_key = "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"
+        openai.api_key = st.secrets["api_key"]
         model_engine = "text-davinci-002"
 
         # Define the initial prompt for the OpenAI model
