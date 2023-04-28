@@ -171,7 +171,7 @@ try:
     
     st.header(' ')
     st.header(' ')
-    st.markdown("By Kamalesh, Arun , Shrish💪🏻")
+    st.markdown("BY 🖥️KAMALESH, 💻ARUN , SHRISH💪🏻")
 
 except KeyError:
     st.error("Enter a valid city!")
