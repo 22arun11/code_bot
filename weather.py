@@ -14,6 +14,8 @@ from langchain.document_loaders import CSVLoader
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.chains import RetrievalQA
 from langchain.llms import OpenAI
+import matplotlib.pyplot as plt
+import openai
 
 st.set_page_config(page_title='clither', page_icon=":cloud:")
 
