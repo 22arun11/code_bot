@@ -184,7 +184,8 @@ try:
 
 
 except KeyError:
-    st.error("Enter a valid city!")
+    pass
+#     st.error("Enter a valid city!")
 def load_chain():
     """Logic for loading the chain you want to use should go here."""
     llm = OpenAI(openai_api_key="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",temperature=0)
