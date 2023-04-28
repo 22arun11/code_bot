@@ -285,8 +285,7 @@ with st.expander("2.ANALYSIS"):
 
     else:
         st.write("Sorry for the Incovinience the data is not available")
-with st.expander("1.CURRENT WEATHER"):
-    pass
+
     
 
         
