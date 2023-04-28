@@ -164,10 +164,8 @@ try:
     
     try:
         st.header("Data from excel: ")
-        df=go.Figure(data=[go.Table(header=dict(line_color='white', fill_color='royalblue',  font=dict(color='black', size=14),height=32),
-    cells=dict(line_color='white',fill_color=['royalblue',['black', 'crimson']*7], font_size=14,height=32
-        ))])
-        st.write(df)
+        styled_df = df.style.set_properties(**{'background-color': 'red'}, subset=pd.IndexSlice[0, 0])
+        st.write(styled_df)
     except:
         pass
     
