@@ -205,7 +205,7 @@ if "generated" not in st.session_state:
 if "past" not in st.session_state:
     st.session_state["past"] = []
 text="WELCOME BACK WHAT WOULD YOU LIKE TO DO?"
-st.markdown(f"<h3 style='color:black'>{text}</h3>", unsafe_allow_html=True)
+st.markdown(f"<h3 style='color:blue'>{text}</h3>", unsafe_allow_html=True)
 with st.expander("1.CHAT BOT"):
         input_text = st.text_input("You: ", "Hello, how are you?", key="input")
         user_input = input_text
