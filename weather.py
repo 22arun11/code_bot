@@ -167,8 +167,6 @@ try:
         df=go.Figure(data=[go.Table(header=dict(line_color='black', fill_color='royalblue',  font=dict(color='white', size=14),height=32),
     cells=dict(line_color='black',fill_color=['royalblue',['black', 'crimson']*7], font_size=14,height=32
         ))])
-
-    df.update_layout(margin=dict(l=10,r=10,b=10,t=10),height=328)
         st.write(df)
     except:
         pass
