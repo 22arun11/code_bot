@@ -6,3 +6,4 @@ openpyxl==3.1.2
 streamlit_chat
 langchain
 openai
+matplotlib
