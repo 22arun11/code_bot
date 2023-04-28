@@ -164,8 +164,6 @@ try:
     
     try:
         st.header("Data from excel: ")
-        styled_df = df.style.set_properties(**{'background-color': 'red'}, subset=pd.IndexSlice[0, 0])
-        st.write(styled_df)
         st.write(df)
     except:
         pass
