@@ -5,7 +5,7 @@ import pandas as pd
 
 st.set_page_config(page_title='clither', page_icon=":cloud:")
 
-st.title("THE WEEKLY PREDICTED WEATHER FORECAST 🌧️🌥️⚡️")
+st.title("THE WEEKLY PREDICTED WEATHER FORECAST ☀️🌧️🌥️⚡️")
 
 with st.sidebar:
     with st.form(key='my_form'):
