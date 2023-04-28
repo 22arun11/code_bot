@@ -2,6 +2,18 @@ import streamlit as st
 import datetime,requests
 from plotly import graph_objects as go
 import pandas as pd
+import streamlit as st
+from streamlit_chat import message
+
+from langchain.chains import ConversationChain
+from langchain.llms import OpenAI
+from langchain import ConversationChain, LLMChain, PromptTemplate
+from langchain.memory import ConversationBufferWindowMemory
+from langchain.agents import create_csv_agent
+from langchain.document_loaders import CSVLoader
+from langchain.indexes import VectorstoreIndexCreator
+from langchain.chains import RetrievalQA
+from langchain.llms import OpenAI
 
 st.set_page_config(page_title='clither', page_icon=":cloud:")
 
@@ -164,35 +176,70 @@ try:
     
     try:
         st.header("Data from excel: ")
-        th_props = [
-        ('font-size', '14px'),
-        ('text-align', 'center'),
-        ('color', 'white'),
-        ('background-color', 'royalblue'),
-        ('border-color', 'black')
-        ]
-                                    
-        td_props = [
-        ('font-size', '12px'),
-        ('background-color', 'black'),
-        ('border-size', '14'),
-        ('border-color', 'while')
-        ]
-                                        
-        styles = [
-        dict(selector="th", props=th_props),
-        dict(selector="td", props=td_props)
-        ]
-
-        # table
-        df2=df.style.set_properties(**{'text-align': 'left'}).set_table_styles(styles)
-        st.write(df2, height=10)
+        styled_df = df.style.set_properties(**{'border-color': 'black','color': 'black'})
+        st.write(styled_df)
     except:
         pass
     
-    st.header(' ')
-    st.header(' ')
-    st.markdown("BY 🖥️KAMALESH, 💻ARUN , SHRISH💪🏻")
+
 
 except KeyError:
     st.error("Enter a valid city!")
+def load_chain():
+    """Logic for loading the chain you want to use should go here."""
+    llm = OpenAI(openai_api_key="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",temperature=0)
+    chain = ConversationChain(llm=llm)
+    return chain
+
+chain = load_chain()
+
+# From here down is all the StreamLit UI.
+
+st.subheader("LANGCHAIN CHAT MODEL")
+
+if "generated" not in st.session_state:
+    st.session_state["generated"] = []
+
+if "past" not in st.session_state:
+    st.session_state["past"] = []
+
+st.subheader(":blue[WELCOME BACK WHAT WOULD YOU LIKE TO DO:]")
+
+with st.expander("1.CHAT BOT"):
+        input_text = st.text_input("You: ", "Hello, how are you?", key="input")
+        user_input = input_text
+        if user_input:
+            output = chain.run(input=user_input)
+
+            st.session_state.past.append(user_input)
+            st.session_state.generated.append(output)
+
+        if st.session_state["generated"]:
+
+            for i in range(len(st.session_state["generated"]) - 1, -1, -1):
+                message(st.session_state["generated"][i], key=str(i))
+                message(st.session_state["past"][i], is_user=True, key=str(i) + "_user")
+
+    
+
+with st.expander("2.ANALYSIS"):
+    st.write("""
+        The chart above shows some numbers I picked for you.
+        I rolled actual dice for these, so they're guaranteed to
+        be random.""")
+    
+
+with st.expander("1.CURRENT WEATHER"):
+    st.write("""
+        The chart above shows some numbers I picked for you.
+        I rolled actual dice for these, so they're guaranteed to
+        be random.""")
+        
+    
+    
+
+def get_text():
+    pass
+st.header(' ')
+st.header(' ')
+st.markdown("BY 🖥️KAMALESH, 💻ARUN , SHRISH💪🏻")
